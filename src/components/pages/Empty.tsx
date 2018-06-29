@@ -30,16 +30,16 @@ class EmptyPage extends React.Component<{}, State> {
     private ref: SVGSVGElement;
 
     private data: any = [
+        {date: 0, value: 0},
         {date: 100, value: 100},
         {date: 200, value: 200},
         {date: 300, value: 300},
         {date: 400, value: 400},
-        {date: 500, value: 500},
-        {date: 600, value: 600},
+        {date: 500, value: 500}
     ];
 
-    private xScale = d3.scaleLinear().domain([0, 600]).range([0, this.state.width]);
-    private yScale = d3.scaleLinear().domain([0, 600]).range([this.state.height, 0]);
+    private xScale = d3.scaleLinear().domain([0, 600]).range([0, 600]);
+    private yScale = d3.scaleLinear().domain([0, 600]).range([600, 0]);
 
     public started() {
         const circle = d3.select(this).classed("dragging", true);
@@ -49,9 +49,11 @@ class EmptyPage extends React.Component<{}, State> {
         const yScale = d3.scaleLinear().domain([0, 600]).range([550, 0]);
 
         function dragged(d: any) {
+
             circle
                 .attr("cx", d3.event.x)
                 .attr("cy", d3.event.y);
+
         }
 
         function ended() {
@@ -114,7 +116,7 @@ class EmptyPage extends React.Component<{}, State> {
 
     public render(): JSX.Element {
         return (
-            <Card bordered title="Hello React & Antd" style={{ margin: "16px 16px"}}>
+            <Card bordered title="Line graph" style={{ margin: "16px 16px"}}>
                 <svg className="container" width={700} height={700} ref={(ref: SVGSVGElement) => this.ref = ref}>
                 </svg>
             </Card>

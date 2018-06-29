@@ -1,20 +1,20 @@
 import * as React from "react";
 import { RouteConfig } from "react-router-config";
 import { Route, Switch } from "react-router-dom";
-import { TodoPage } from "./pages/TodoPage";
+// import { TodoPage } from "./pages/TodoPage";
 import AboutPage from "./pages/AboutPage";
 import PageLayout from "./layouts/PageLayout";
 import EmptyPage from "./pages/Empty";
 
 export const routes: RouteConfig[] = [
     {
-        path: "/home",
+        path: "/",
         exact: true,
-        component: () => (<EmptyPage />),
+        component: () => (<AboutPage />),
     },
     {
         path: "/todo",
-        component: () => (<TodoPage />),
+        component: () => (<EmptyPage />),
     },
     {
         path: "/about",

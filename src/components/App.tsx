@@ -1,5 +1,5 @@
 import * as React from "react";
-import {HashRouter} from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import { LocaleProvider } from "antd";
 import enUS from "antd/lib/locale-provider/en_US";
@@ -14,7 +14,7 @@ class App extends React.Component<{}, {}> {
         return (
             <LocaleProvider locale={enUS}>
                 <Provider store={store}>
-                    <HashRouter children={route} />
+                    <BrowserRouter children={route} />
                 </Provider>
             </LocaleProvider>
         );
